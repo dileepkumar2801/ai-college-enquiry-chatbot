@@ -223,12 +223,15 @@ def home():
 
 
 # Health check
-@app.get("/api/health")
-def health():
+
+@app.get("/api/check-gemini-config")
+def check_gemini_config():
     return jsonify({
-        "status": "ok",
-        "service": "AI College Enquiry Chatbot"
+        "gemini_key_configured": bool(
+            os.environ.get("GEMINI_API_KEY", "").strip()
+        )
     })
+
 
 
 # Suggested questions
