@@ -88,6 +88,59 @@ def find_best_answer(user_question):
         return None, confidence
     return faqs[best_index], confidence
 
+def get_gemini_answer(user_question):
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        return None
+
+    url = (
+        "https://generativelanguage.googleapis.com/"
+        "v1beta/models/gemini-2.5-flash:generateContent"
+    )
+
+    prompt = (
+        "You are a helpful college enquiry assistant for "
+        "SRIT (Srinivasa Ramanujan Institute of Technology), "
+        "Anantapur, Andhra Pradesh, India. Answer politely "
+        "and clearly. Do not invent official college facts, "
+        "fees, admission rules, dates, or contact details. "
+        "If you do not know a verified answer, say that the "
+        "student should confirm it with the college office.\n\n"
+        f"Student question: {user_question}"
+    )
+
+    try:
+        response = requests.post(
+            url,
+            headers={"x-goog-api-key": api_key},
+            json={
+                "contents": [
+                    {"parts": [{"text": prompt}]}
+                ],
+                "generationConfig": {
+                    "temperature": 0.3,
+                    "maxOutputTokens": 300
+                }
+            },
+            timeout=20
+        )
+
+        if response.status_code != 200:
+            app.logger.warning(
+                "Gemini API returned status %s",
+                response.status_code
+            )
+            return None
+
+        data = response.json()
+        return (
+            data["candidates"][0]["content"]["parts"][0]["text"].strip()
+        )
+
+    except (requests.RequestException, KeyError, IndexError, TypeError):
+        app.logger.exception("Gemini request failed")
+        return None
+
 @app.get("/")
 def home():
     return render_template("index.html")
