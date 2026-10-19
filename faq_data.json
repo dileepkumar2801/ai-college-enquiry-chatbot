@@ -1,0 +1,159 @@
+[
+  {
+    "question": "What courses are offered by the college?",
+    "answer": "This is sample demo information. Replace this answer with the official list of courses offered by your college.",
+    "category": "Academics",
+    "keywords": [
+      "courses",
+      "programmes",
+      "programs",
+      "departments",
+      "degree",
+      "branches"
+    ]
+  },
+  {
+    "question": "How can I apply for admission?",
+    "answer": "This is sample demo information. Add your college's official admission steps, application link, eligibility criteria, and important dates here.",
+    "category": "Admissions",
+    "keywords": [
+      "admission",
+      "apply",
+      "application",
+      "eligibility",
+      "join",
+      "enrolment",
+      "enrollment"
+    ]
+  },
+  {
+    "question": "What are the college working hours?",
+    "answer": "This is sample demo information. Replace it with the official college working hours and working days.",
+    "category": "General",
+    "keywords": [
+      "timings",
+      "hours",
+      "opening",
+      "closing",
+      "working days",
+      "schedule"
+    ]
+  },
+  {
+    "question": "Where is the college located?",
+    "answer": "This is sample demo information. Replace it with your college's official address and map link.",
+    "category": "Campus",
+    "keywords": [
+      "address",
+      "location",
+      "directions",
+      "reach",
+      "map",
+      "campus"
+    ]
+  },
+  {
+    "question": "What documents are required for admission?",
+    "answer": "This is sample demo information. Add the officially required documents, such as certificates or ID proofs, only after confirming the list with your college.",
+    "category": "Admissions",
+    "keywords": [
+      "documents",
+      "certificates",
+      "proof",
+      "required papers",
+      "admission documents"
+    ]
+  },
+  {
+    "question": "How can I contact the college office?",
+    "answer": "This is sample demo information. Add the official phone number, email address, and office hours here. Do not publish personal contact details without permission.",
+    "category": "Contact",
+    "keywords": [
+      "contact",
+      "phone",
+      "telephone",
+      "email",
+      "office",
+      "helpdesk",
+      "support"
+    ]
+  },
+  {
+    "question": "Does the college have a library?",
+    "answer": "This is sample demo information. Add the library location, opening hours, membership rules, and borrowing policy from the official college source.",
+    "category": "Facilities",
+    "keywords": [
+      "library",
+      "books",
+      "reading room",
+      "borrow",
+      "facilities"
+    ]
+  },
+  {
+    "question": "How do I get information about fees?",
+    "answer": "This is sample demo information. Add the approved fee structure or a link to the official fee notice. Fees can change, so include the notice date.",
+    "category": "Fees",
+    "keywords": [
+      "fees",
+      "tuition",
+      "payment",
+      "fee structure",
+      "scholarship",
+      "refund"
+    ]
+  },
+  {
+    "question": "How can I find examination information?",
+    "answer": "Please check the official examination cell notice board or website for the latest timetable, hall-ticket, and results information. Replace this with your college's official links.",
+    "category": "Examinations",
+    "keywords": [
+      "exam",
+      "examination",
+      "timetable",
+      "hall ticket",
+      "results",
+      "marks",
+      "semester"
+    ]
+  },
+  {
+    "question": "What facilities are available on campus?",
+    "answer": "This is sample demo information. Add verified facilities such as laboratories, sports areas, transport, hostel, canteen, and medical support if your college provides them.",
+    "category": "Facilities",
+    "keywords": [
+      "facilities",
+      "hostel",
+      "transport",
+      "bus",
+      "canteen",
+      "sports",
+      "laboratory",
+      "lab"
+    ]
+  },
+  {
+    "question": "How can I get a bonafide certificate?",
+    "answer": "This is sample demo information. Add your college's approved procedure, office location, expected processing time, and any required form.",
+    "category": "Student Services",
+    "keywords": [
+      "bonafide",
+      "certificate",
+      "student services",
+      "application form"
+    ]
+  },
+  {
+    "question": "Who should I contact for placement information?",
+    "answer": "This is sample demo information. Add the official placement cell contact details, eligibility rules, and placement office hours.",
+    "category": "Placements",
+    "keywords": [
+      "placement",
+      "jobs",
+      "internship",
+      "career",
+      "recruitment",
+      "training"
+    ]
+  }
+]

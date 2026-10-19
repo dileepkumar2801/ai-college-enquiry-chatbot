@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101828">
+  <meta name="description" content="AI-powered college enquiry chatbot">
+  <title>CampusMate | College Enquiry Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <main class="app-shell">
+    <aside class="side-panel">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">C</div>
+        <div><strong>CampusMate</strong><span>College Assistant</span></div>
+      </div>
+      <div class="side-intro">
+        <p class="eyebrow">YOUR CAMPUS, SIMPLIFIED</p>
+        <h1>Answers for your college life.</h1>
+        <p class="muted">Ask about admissions, courses, facilities, fees and student services.</p>
+      </div>
+      <div class="side-note">
+        <span class="status-dot"></span>
+        <div><strong>AI FAQ assistant</strong><p>Answers are matched against the college FAQ database.</p></div>
+      </div>
+      <p class="side-footer">Demo version · Update the FAQ data with verified college information.</p>
+    </aside>
+
+    <section class="chat-panel" aria-label="College enquiry chat">
+      <header class="chat-header">
+        <div class="assistant-avatar" aria-hidden="true">CM</div>
+        <div class="header-copy"><h2>College Enquiry</h2><p><span class="online-dot"></span> Assistant is ready</p></div>
+        <button id="clear-chat" class="icon-button" type="button" title="Clear chat" aria-label="Clear chat">↻</button>
+      </header>
+
+      <div class="welcome" id="welcome">
+        <div class="welcome-mark" aria-hidden="true">✦</div>
+        <h3>Hi there! How can I help?</h3>
+        <p>Ask a question or choose one of the suggestions below to get started.</p>
+        <div class="suggestions" id="suggestions" aria-label="Suggested questions">
+          <button class="suggestion" type="button" data-question="What courses are offered by the college?">Available courses <span>↗</span></button>
+          <button class="suggestion" type="button" data-question="How can I apply for admission?">Admission process <span>↗</span></button>
+          <button class="suggestion" type="button" data-question="What are the college working hours?">College timings <span>↗</span></button>
+          <button class="suggestion" type="button" data-question="How can I contact the college office?">Contact the office <span>↗</span></button>
+        </div>
+      </div>
+
+      <div id="messages" class="messages" aria-live="polite" aria-label="Chat messages"></div>
+      <div id="typing" class="typing hidden" aria-live="polite"><span></span><span></span><span></span><small>Finding an answer…</small></div>
+
+      <form id="chat-form" class="composer">
+        <label class="sr-only" for="message-input">Type your college question</label>
+        <input id="message-input" name="message" type="text" maxlength="1000" placeholder="Ask anything about your college..." autocomplete="off" required>
+        <button id="send-button" type="submit" aria-label="Send message"><span>Send</span><b aria-hidden="true">➤</b></button>
+      </form>
+      <p class="disclaimer">Please verify important information with the official college office.</p>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</body>
+</html>

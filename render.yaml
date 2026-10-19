@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: campusmate-college-chatbot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: SECRET_KEY
+        generateValue: true
+      - key: MATCH_THRESHOLD
+        value: "0.16"
+      # Add DATABASE_URL in the Render dashboard if using hosted PostgreSQL.
