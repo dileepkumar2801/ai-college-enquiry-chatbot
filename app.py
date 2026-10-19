@@ -1,7 +1,9 @@
 
 import os
 import re
+import logging
 import requests
+
 from datetime import datetime, timezone
 
 from flask import Flask, jsonify, render_template, request
@@ -9,13 +11,24 @@ from flask_sqlalchemy import SQLAlchemy
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
+
+# ==========================================
+# 1. FLASK APPLICATION CONFIGURATION
+# ==========================================
+
 app = Flask(__name__)
 
 app.config["SECRET_KEY"] = os.environ.get(
-    "SECRET_KEY", "change-this-before-public-deployment"
+    "SECRET_KEY", "development-key-change-before-production"
 )
 
-# Database configuration
+app.logger.setLevel(logging.INFO)
+
+
+# ==========================================
+# 2. DATABASE CONFIGURATION
+# ==========================================
+
 database_url = os.environ.get(
     "DATABASE_URL", "sqlite:///college_chatbot.db"
 )
@@ -39,7 +52,10 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
 
-# FAQ database model
+# ==========================================
+# 3. DATABASE MODELS
+# ==========================================
+
 class FAQ(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     question = db.Column(db.String(500), nullable=False)
@@ -48,7 +64,6 @@ class FAQ(db.Model):
     keywords = db.Column(db.Text, default="")
 
 
-# Chat history model
 class ChatLog(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_question = db.Column(db.Text, nullable=False)
@@ -61,7 +76,10 @@ class ChatLog(db.Model):
     )
 
 
-# Load FAQ data from JSON
+# ==========================================
+# 4. LOAD FAQ DATA
+# ==========================================
+
 def load_faq_data():
     import json
     from pathlib import Path
@@ -72,37 +90,43 @@ def load_faq_data():
         return json.load(file)
 
 
-# Add initial FAQs if the database is empty
 def seed_database():
     if FAQ.query.count() == 0:
-        for item in load_faq_data():
+        items = load_faq_data()
+
+        for item in items:
             db.session.add(
                 FAQ(
                     question=item["question"],
                     answer=item["answer"],
                     category=item.get("category", "General"),
-                    keywords=", ".join(item.get("keywords", []))
+                    keywords=", ".join(
+                        item.get("keywords", [])
+                    )
                 )
             )
 
         db.session.commit()
 
 
-# Normalize text
+# ==========================================
+# 5. FAQ SEARCH
+# ==========================================
+
 def normalise(text):
-    return re.sub(r"\s+", " ", (text or "").strip().lower())
+    return re.sub(
+        r"\s+", " ", (text or "").strip().lower()
+    )
 
 
-# Prepare FAQ search text
 def build_search_text(faq):
     return " ".join([
-        faq.question,
+        faq.question or "",
         faq.category or "",
         faq.keywords or ""
     ])
 
 
-# Find the closest FAQ answer
 def find_best_answer(user_question):
     faqs = FAQ.query.all()
 
@@ -110,8 +134,7 @@ def find_best_answer(user_question):
         return None, 0.0
 
     documents = [
-        build_search_text(faq)
-        for faq in faqs
+        build_search_text(faq) for faq in faqs
     ]
 
     vectorizer = TfidfVectorizer(
@@ -147,12 +170,17 @@ def find_best_answer(user_question):
     return faqs[best_index], confidence
 
 
-# Gemini AI integration
+# ==========================================
+# 6. GEMINI AI INTEGRATION
+# ==========================================
+
 def get_gemini_answer(user_question):
-    api_key = os.environ.get("GEMINI_API_KEY")
+    api_key = os.environ.get("GEMINI_API_KEY", "").strip()
 
     if not api_key:
-        app.logger.warning("GEMINI_API_KEY is not configured.")
+        app.logger.error(
+            "GEMINI_API_KEY is missing from the running environment."
+        )
         return None
 
     url = (
@@ -163,18 +191,22 @@ def get_gemini_answer(user_question):
     prompt = (
         "You are a helpful college enquiry assistant for "
         "SRIT (Srinivasa Ramanujan Institute of Technology), "
-        "Anantapur, Andhra Pradesh, India. Answer politely "
-        "and clearly. Do not invent official college facts, "
-        "fees, admission rules, dates, or contact details. "
-        "If you do not know a verified answer, say that the "
-        "student should confirm it with the college office.\n\n"
+        "Anantapur, Andhra Pradesh, India. "
+        "Answer politely and clearly. "
+        "Do not invent official college facts, fees, admission "
+        "rules, dates, or contact details. "
+        "If you do not know a verified answer, tell the student "
+        "to confirm it with the college office.\n\n"
         f"Student question: {user_question}"
     )
 
     try:
         response = requests.post(
             url,
-            headers={"x-goog-api-key": api_key},
+            headers={
+                "x-goog-api-key": api_key,
+                "Content-Type": "application/json"
+            },
             json={
                 "contents": [
                     {
@@ -188,53 +220,97 @@ def get_gemini_answer(user_question):
                     "maxOutputTokens": 300
                 }
             },
-            timeout=20
+            timeout=25
         )
 
         if response.status_code != 200:
-            app.logger.warning(
-                "Gemini API returned status %s",
-                response.status_code
+            # Log the error without exposing the API key.
+            app.logger.error(
+                "Gemini API returned HTTP %s: %s",
+                response.status_code,
+                response.text[:1000]
             )
             return None
 
         data = response.json()
 
-        return (
-            data["candidates"][0]["content"]["parts"][0]["text"]
-            .strip()
-        )
+        candidates = data.get("candidates", [])
 
-    except (
-        requests.RequestException,
-        KeyError,
-        IndexError,
-        TypeError,
-        ValueError
-    ):
-        app.logger.exception("Gemini request failed")
+        if not candidates:
+            app.logger.warning(
+                "Gemini returned no answer candidates."
+            )
+            return None
+
+        parts = candidates[0].get(
+            "content", {}
+        ).get("parts", [])
+
+        answer = " ".join(
+            part["text"]
+            for part in parts
+            if isinstance(part.get("text"), str)
+        ).strip()
+
+        if not answer:
+            app.logger.warning(
+                "Gemini returned an empty answer."
+            )
+            return None
+
+        return answer
+
+    except requests.RequestException:
+        app.logger.exception(
+            "Could not connect to the Gemini API."
+        )
+        return None
+
+    except (ValueError, KeyError, TypeError, IndexError):
+        app.logger.exception(
+            "Could not process the Gemini response."
+        )
         return None
 
 
-# Home page
+# ==========================================
+# 7. HOME PAGE
+# ==========================================
+
 @app.get("/")
 def home():
     return render_template("index.html")
 
 
-# Health check
+# ==========================================
+# 8. HEALTH CHECK
+# ==========================================
 
-@app.get("/api/check-gemini-config")
-def check_gemini_config():
+@app.get("/api/health")
+def health():
     return jsonify({
-        "gemini_key_configured": bool(
-            os.environ.get("GEMINI_API_KEY", "").strip()
-        )
+        "status": "ok",
+        "service": "AI College Enquiry Chatbot"
     })
 
 
+# ==========================================
+# 9. GEMINI CONFIGURATION DIAGNOSTIC
+# ==========================================
 
-# Suggested questions
+@app.get("/api/check-gemini-config")
+def check_gemini_config():
+    api_key = os.environ.get("GEMINI_API_KEY", "")
+
+    return jsonify({
+        "gemini_key_configured": bool(api_key.strip())
+    })
+
+
+# ==========================================
+# 10. SUGGESTED QUESTIONS
+# ==========================================
+
 @app.get("/api/suggestions")
 def suggestions():
     faqs = FAQ.query.order_by(
@@ -250,12 +326,22 @@ def suggestions():
     ])
 
 
-# Main chatbot route
+# ==========================================
+# 11. MAIN CHATBOT
+# ==========================================
+
 @app.post("/api/chat")
 def chat():
     payload = request.get_json(silent=True) or {}
 
-    question = (payload.get("message") or "").strip()
+    question = payload.get("message", "")
+
+    if not isinstance(question, str):
+        return jsonify({
+            "error": "Please enter a valid text question."
+        }), 400
+
+    question = question.strip()
 
     if not question:
         return jsonify({
@@ -267,23 +353,22 @@ def chat():
             "error": "Please keep your question under 1,000 characters."
         }), 400
 
-    # Step 1: Search the FAQ database
+    # First, search the FAQ database.
     faq, confidence = find_best_answer(question)
 
     if faq is not None:
-        # Use the matching FAQ answer
         answer = faq.answer
         faq_id = faq.id
         category = faq.category or "General"
 
     else:
-        # Step 2: Ask Gemini if no FAQ matches
+        # If there is no matching FAQ, ask Gemini.
         answer = get_gemini_answer(question)
         faq_id = None
-        category = "AI Generated"
 
-        # Step 3: Fallback if Gemini is unavailable
-        if answer is None:
+        if answer is not None:
+            category = "AI Generated"
+        else:
             answer = (
                 "Sorry, I couldn't find an answer right now. "
                 "Please try again later or contact the "
@@ -291,7 +376,7 @@ def chat():
             )
             category = "Not found"
 
-    # Save chat history
+    # Save the conversation to the database.
     try:
         db.session.add(
             ChatLog(
@@ -306,9 +391,10 @@ def chat():
 
     except Exception:
         db.session.rollback()
-        app.logger.exception("Could not save chat log")
+        app.logger.exception(
+            "Could not save chat history."
+        )
 
-    # Return answer to the frontend
     return jsonify({
         "answer": answer,
         "category": category,
@@ -317,13 +403,19 @@ def chat():
     })
 
 
-# Initialize database
+# ==========================================
+# 12. INITIALIZE DATABASE
+# ==========================================
+
 with app.app_context():
     db.create_all()
     seed_database()
 
 
-# Start Flask application
+# ==========================================
+# 13. START APPLICATION
+# ==========================================
+
 if __name__ == "__main__":
     app.run(
         host="0.0.0.0",
