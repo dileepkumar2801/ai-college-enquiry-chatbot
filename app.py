@@ -412,6 +412,13 @@ with app.app_context():
     seed_database()
 
 
+@app.route("/api/check-gemini-config")
+def check_gemini_config():
+    api_key = os.environ.get("GEMINI_API_KEY", "").strip()
+    return {
+        "gemini_key_configured": bool(api_key)
+    }
+
 # ==========================================
 # 13. START APPLICATION
 # ==========================================
