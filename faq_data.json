@@ -1,7 +1,7 @@
 [
   {
     "question": "What courses are offered by the college?",
-    "answer": "This is sample demo information. Replace this answer with the official list of courses offered by your college.",
+    "answer": "SRIT (Srinivasa Ramanujan Institute of Technology), Anantapur, offers B.Tech programs in Computer Science and Engineering (CSE), CSE with Artificial Intelligence and Machine Learning (AI&ML), CSE with Artificial Intelligence and Data Science (AI&DS), Electronics and Communication Engineering (ECE), Electrical and Electronics Engineering (EEE), Mechanical Engineering, and Civil Engineering. Postgraduate programs include M.Tech in Computer Science, Electrical Power Systems, and VLSI Design. For the latest details, visit https://www.srit.ac.in/courses-offered/.",
     "category": "Academics",
     "keywords": [
       "courses",
@@ -9,12 +9,18 @@
       "programs",
       "departments",
       "degree",
-      "branches"
+      "branches",
+      "CSE",
+      "ECE",
+      "EEE",
+      "AI ML",
+      "AI DS",
+      "MTech"
     ]
   },
   {
     "question": "How can I apply for admission?",
-    "answer": "You can apply for admission to SRIT through the relevant admission process: Category A (counselling seats): Admissions are based on AP EAPCET ranks and the applicable counselling and reservation rules. Category B (management seats): Admissions are handled by the college management according to applicable APSCHE guidelines. B.Tech lateral entry: Eligible diploma holders can apply through the AP ECET counselling process."
+    "answer": "SRIT offers admissions through Category A counselling, Category B management seats, and B.Tech lateral entry. Category A admissions are based on AP EAPCET ranks and applicable reservation rules. Category B admissions are handled by the college management according to APSCHE guidelines. Eligible diploma holders can apply for second-year B.Tech admission through AP ECET counselling. Eligibility and admission rules may change, so check https://www.srit.ac.in/admission-procedure/ or contact the college at 9515611111.",
     "category": "Admissions",
     "keywords": [
       "admission",
@@ -23,12 +29,16 @@
       "eligibility",
       "join",
       "enrolment",
-      "enrollment"
+      "enrollment",
+      "EAPCET",
+      "ECET",
+      "management quota",
+      "counselling"
     ]
   },
   {
     "question": "What are the college working hours?",
-    "answer": "This is sample demo information. Replace it with the official college working hours and working days.",
+    "answer": "For the latest college working hours, class timings, and office timings at SRIT, please contact the college office at 9515611111 or email hr@srit.ac.in. The official website is https://www.srit.ac.in/. Please confirm the current schedule with the college because exact timings may vary.",
     "category": "General",
     "keywords": [
       "timings",
@@ -36,12 +46,15 @@
       "opening",
       "closing",
       "working days",
-      "schedule"
+      "schedule",
+      "college time",
+      "class timings",
+      "office timings"
     ]
   },
   {
     "question": "Where is the college located?",
-    "answer": "This is sample demo information. Replace it with your college's official address and map link.",
+    "answer": "Srinivasa Ramanujan Institute of Technology (SRIT) is located at Rotarypuram Village, B.K. Samudram Mandal, Anantapur District, Andhra Pradesh - 515701. You can view the location on Google Maps here: https://www.google.com/maps/search/?api=1&query=Srinivasa+Ramanujan+Institute+of+Technology+Rotarypuram+Anantapur+515701. For assistance, contact 9515611111.",
     "category": "Campus",
     "keywords": [
       "address",
@@ -49,24 +62,32 @@
       "directions",
       "reach",
       "map",
-      "campus"
+      "campus",
+      "Anantapur",
+      "Rotarypuram",
+      "how to reach"
     ]
   },
   {
     "question": "What documents are required for admission?",
-    "answer": "This is sample demo information. Add the officially required documents, such as certificates or ID proofs, only after confirming the list with your college.",
+    "answer": "The documents required for admission to SRIT depend on the course and admission category. Students may need their qualifying examination marks memo, transfer certificate, study certificates, entrance examination rank card and hall ticket, Aadhaar or another valid ID, photographs, and applicable caste or income certificates. This is a general checklist, not a confirmed official list. Please check the current admission instructions at https://www.srit.ac.in/admission-procedure/ or contact the college office at 9515611111 before submitting documents.",
     "category": "Admissions",
     "keywords": [
       "documents",
       "certificates",
       "proof",
       "required papers",
-      "admission documents"
+      "admission documents",
+      "marks memo",
+      "rank card",
+      "transfer certificate",
+      "TC",
+      "Aadhaar"
     ]
   },
   {
     "question": "How can I contact the college office?",
-    "answer": "This is sample demo information. Add the official phone number, email address, and office hours here. Do not publish personal contact details without permission.",
+    "answer": "You can contact Srinivasa Ramanujan Institute of Technology (SRIT) at 9515611111 or email hr@srit.ac.in. The official website is https://www.srit.ac.in/ and the contact page is https://www.srit.ac.in/contact-us/. The college address is Rotarypuram Village, B.K. Samudram Mandal, Anantapur District, Andhra Pradesh - 515701.",
     "category": "Contact",
     "keywords": [
       "contact",
@@ -75,24 +96,30 @@
       "email",
       "office",
       "helpdesk",
-      "support"
+      "support",
+      "contact number",
+      "college phone",
+      "college email"
     ]
   },
   {
     "question": "Does the college have a library?",
-    "answer": "This is sample demo information. Add the library location, opening hours, membership rules, and borrowing policy from the official college source.",
+    "answer": "Yes. SRIT's official website describes its library as supporting teaching, learning, and research, with print and digital learning resources. For the latest library opening hours, book borrowing rules, membership details, and available resources, please visit https://www.srit.ac.in/ or contact the college office at 9515611111.",
     "category": "Facilities",
     "keywords": [
       "library",
       "books",
       "reading room",
       "borrow",
-      "facilities"
+      "facilities",
+      "digital library",
+      "e-books",
+      "journals"
     ]
   },
   {
     "question": "How do I get information about fees?",
-    "answer": "This is sample demo information. Add the approved fee structure or a link to the official fee notice. Fees can change, so include the notice date.",
+    "answer": "You can find the published fee structure for SRIT, including information about B.Tech, M.Tech, management quota seats, and eligible scholarships, at https://www.srit.ac.in/fee-structure/. Fees depend on the course, admission category, and academic year, so check the latest official notice before making a payment. For payment-related questions, visit https://www.srit.ac.in/online-fee-payment/ or call 9515611111.",
     "category": "Fees",
     "keywords": [
       "fees",
@@ -100,12 +127,16 @@
       "payment",
       "fee structure",
       "scholarship",
-      "refund"
+      "refund",
+      "hostel fee",
+      "management fee",
+      "college fee",
+      "online payment"
     ]
   },
   {
     "question": "How can I find examination information?",
-    "answer": "Please check the official examination cell notice board or website for the latest timetable, hall-ticket, and results information. Replace this with your college's official links.",
+    "answer": "For SRIT examination timetables, hall tickets, results, notifications, and other examination-related updates, check the official college website at https://www.srit.ac.in/ and look for the relevant examination notices. You can also contact your department or the college office at 9515611111 for assistance. Always follow the latest official notification for examination dates and procedures.",
     "category": "Examinations",
     "keywords": [
       "exam",
@@ -114,12 +145,16 @@
       "hall ticket",
       "results",
       "marks",
-      "semester"
+      "semester",
+      "exam schedule",
+      "notification",
+      "internal exams",
+      "external exams"
     ]
   },
   {
     "question": "What facilities are available on campus?",
-    "answer": "This is sample demo information. Add verified facilities such as laboratories, sports areas, transport, hostel, canteen, and medical support if your college provides them.",
+    "answer": "SRIT's official website describes facilities and student resources including a library, transportation, sports and extracurricular activities, and internship-related opportunities. The availability and details of specific facilities, such as hostels, canteens, laboratories, and medical support, should be confirmed with the college. Visit https://www.srit.ac.in/ or contact 9515611111 for current information.",
     "category": "Facilities",
     "keywords": [
       "facilities",
@@ -129,23 +164,29 @@
       "canteen",
       "sports",
       "laboratory",
-      "lab"
+      "lab",
+      "library",
+      "internship",
+      "campus facilities"
     ]
   },
   {
     "question": "How can I get a bonafide certificate?",
-    "answer": "This is sample demo information. Add your college's approved procedure, office location, expected processing time, and any required form.",
+    "answer": "SRIT students who need a bonafide certificate should contact their department office or the college administrative office to confirm the application procedure and required documents. Ask the office whether an application form, student ID, or other supporting documents are needed, and confirm the expected processing time. For assistance, call 9515611111 or email hr@srit.ac.in.",
     "category": "Student Services",
     "keywords": [
       "bonafide",
       "certificate",
       "student services",
-      "application form"
+      "application form",
+      "bonafide certificate",
+      "student certificate",
+      "college certificate"
     ]
   },
   {
     "question": "Who should I contact for placement information?",
-    "answer": "This is sample demo information. Add the official placement cell contact details, eligibility rules, and placement office hours.",
+    "answer": "SRIT has a Training and Placement section that publishes placement-related information and statistics. Students can visit https://www.srit.ac.in/training-placement-statistics/ and https://www.srit.ac.in/ for updates about recruiters, placement activities, internships, and career opportunities. For eligibility, training schedules, and placement assistance, contact your department or the college's Training and Placement Cell.",
     "category": "Placements",
     "keywords": [
       "placement",
@@ -153,7 +194,11 @@
       "internship",
       "career",
       "recruitment",
-      "training"
+      "training",
+      "placement cell",
+      "companies",
+      "campus interviews",
+      "job opportunities"
     ]
   }
 ]
