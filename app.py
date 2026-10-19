@@ -1,5 +1,6 @@
 import os
 import re
+import requests
 from datetime import datetime, timezone
 
 from flask import Flask, jsonify, render_template, request
