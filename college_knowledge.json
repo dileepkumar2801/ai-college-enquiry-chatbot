@@ -1,0 +1,117 @@
+{
+  "college": {
+    "name": "Srinivasa Ramanujan Institute of Technology (SRIT)",
+    "location_label": "Ananthapuramu, Andhra Pradesh, India",
+    "website": "https://www.srit.ac.in/",
+    "phone_as_shown_on_website": "91-951 561 1111",
+    "email": "hr@srit.ac.in",
+    "source_note": "Prepared from the SRIT homepage HTML supplied for this project. The homepage is a snapshot; time-sensitive details must be checked on the live official site."
+  },
+  "pages": {
+    "overview": {"title": "About SRIT / Overview", "url": "https://www.srit.ac.in/overview/"},
+    "courses": {"title": "Courses Offered", "url": "https://www.srit.ac.in/courses-offered/"},
+    "admissions": {"title": "Admission Procedure", "url": "https://www.srit.ac.in/admission-procedure/"},
+    "fees": {"title": "Fee Structure", "url": "https://www.srit.ac.in/fee-structure/"},
+    "scholarships": {"title": "Scholarships", "url": "https://www.srit.ac.in/scholarships/"},
+    "placements": {"title": "Training & Placement Statistics", "url": "https://www.srit.ac.in/training-placement-statistics/"},
+    "library": {"title": "Library", "url": "https://www.srit.ac.in/library/"},
+    "transport": {"title": "Transport", "url": "https://www.srit.ac.in/transport/"},
+    "hostels": {"title": "Hostels", "url": "https://www.srit.ac.in/hostels/"},
+    "contact": {"title": "Contact SRIT", "url": "https://www.srit.ac.in/contact-us/"},
+    "exams": {"title": "Examination and Results", "url": "https://www.srit.ac.in/"},
+    "program_overview": {"title": "Program Overview", "url": "https://www.srit.ac.in/computer-science-engineering/program-overview/"}
+  },
+  "departments": [
+    "Computer Science and Engineering (CSE)",
+    "Computer Science and Engineering (Artificial Intelligence & Machine Learning)",
+    "Computer Science and Engineering (Artificial Intelligence & Data Science)",
+    "Electronics and Communication Engineering (ECE)",
+    "Electrical and Electronics Engineering (EEE)",
+    "Mechanical Engineering (MEC)",
+    "Civil Engineering (CIV)",
+    "Humanities and Sciences (H&S)"
+  ],
+  "campus_topics": [
+    "Library and digital learning resources", "Transport", "Hostels", "Internet connectivity", "Cafeteria", "Laboratories", "Sports", "Computer Center", "Student chapters and clubs", "Internships and training programs", "Training and Placement Cell"
+  ],
+  "documents": [
+    {
+      "id": "profile",
+      "title": "College profile and contact",
+      "tags": ["about", "overview", "college", "institute", "location", "phone", "email", "contact", "address"],
+      "text": "The supplied homepage identifies the institution as Srinivasa Ramanujan Institute of Technology (SRIT), Ananthapuramu. It displays the phone number 91-951 561 1111 and email hr@srit.ac.in. The homepage snapshot does not provide a complete postal address in the extracted content. Use the official Contact Us page for current contact/address details.",
+      "url": "https://www.srit.ac.in/contact-us/"
+    },
+    {
+      "id": "courses",
+      "title": "Courses and departments listed on the homepage",
+      "tags": ["course", "courses", "branch", "department", "cse", "ai", "machine learning", "data science", "ece", "eee", "mechanical", "civil", "h&s"],
+      "text": "The supplied homepage menu lists CSE, CSE (AI & ML), CSE (AI & Data Science), ECE, EEE, MEC, CIV and H&S. Confirm currently offered programs, degree level, intake, and eligibility on the official Courses Offered page; a homepage menu alone does not establish current intake or approval.",
+      "url": "https://www.srit.ac.in/courses-offered/"
+    },
+    {
+      "id": "admissions",
+      "title": "Admissions and entrance-rank information",
+      "tags": ["admission", "admissions", "apply", "application", "eligibility", "eapcet", "eamcet", "ecet", "pgecet", "rank", "cutoff", "counselling", "seat"],
+      "text": "The supplied SRIT homepage includes Admission Procedure, Courses Offered, EAPCET/ECET ranks, PGECET ranks, Admissions Committee and academic calendar links. Exact eligibility, current cutoffs, seat availability and counselling dates are not established by the supplied homepage text. Check the official Admission Procedure and admissions/ranks sections for the latest details.",
+      "url": "https://www.srit.ac.in/admission-procedure/"
+    },
+    {
+      "id": "fees",
+      "title": "Fees and online fee payment",
+      "tags": ["fee", "fees", "tuition", "payment", "amount", "cost", "structure", "college fee"],
+      "text": "The supplied homepage links to Fee Structure and Online Fee Payment, but the supplied homepage text does not establish a current fee amount. Fees can depend on program, admission category and academic year. Check the official Fee Structure page or contact SRIT before paying; do not rely on unofficial estimates.",
+      "url": "https://www.srit.ac.in/fee-structure/"
+    },
+    {
+      "id": "scholarships",
+      "title": "Scholarships",
+      "tags": ["scholarship", "scholarships", "financial aid", "fee reimbursement", "eligibility", "support"],
+      "text": "Scholarships are listed in the supplied homepage's Admissions menu. The provided homepage snapshot does not include specific scholarship schemes, eligibility rules, deadlines or amounts. Check the official Scholarships page and verify eligibility for the relevant academic year.",
+      "url": "https://www.srit.ac.in/scholarships/"
+    },
+    {
+      "id": "placements",
+      "title": "Placements listed in the 2024–25 homepage snapshot",
+      "tags": ["placement", "placements", "salary", "package", "lpa", "companies", "recruiters", "tcs", "cts", "infosys", "hcl", "job", "career"],
+      "text": "The supplied homepage snapshot lists 2024–25 placement figures for companies including TCS, CTS, Lumen Technologies, HCL and Infosys. It lists TCS 164 offers (including Prime, Digital and Ninja categories), CTS 85, HCL 16 and Infosys 21, among other entries. These are figures shown in the supplied snapshot, not a guarantee of future outcomes or a verified current-year report. Check the official Training & Placement Statistics page for the most recent report and methodology.",
+      "url": "https://www.srit.ac.in/training-placement-statistics/"
+    },
+    {
+      "id": "facilities",
+      "title": "Campus facilities and student life",
+      "tags": ["facility", "facilities", "campus", "library", "sports", "internet", "cafeteria", "lab", "laboratory", "transport", "bus", "hostel", "clubs", "student life", "computer center"],
+      "text": "The supplied homepage menu and facilities section mention a library, transport, hostels, internet, cafeteria, labs, sports, a Computer Center, internships and student chapters/clubs. The homepage describes a library with print and digital resources; figures in the source refer to August 2018 and should be treated as historical rather than current. For specific hostel availability, bus routes, timings or facilities, check the linked official pages or contact the college.",
+      "url": "https://www.srit.ac.in/"
+    },
+    {
+      "id": "exams",
+      "title": "Examinations, academic regulations and results",
+      "tags": ["exam", "exams", "results", "result", "semester", "regulation", "academic calendar", "recounting", "revaluation", "question paper", "marks memo", "digi locker"],
+      "text": "The supplied homepage navigation includes Notifications, Results, Academic Regulations, Academic Calendars, Recounting & Re-Evaluation Procedure, Previous Question Papers, annual examination reports and DigiLocker marks memos. The homepage snapshot does not contain live individual results; use SRIT's official site navigation for current exam information.",
+      "url": "https://www.srit.ac.in/"
+    },
+    {
+      "id": "clubs-events",
+      "title": "Student clubs, chapters, events and workshops",
+      "tags": ["club", "clubs", "event", "events", "workshop", "student chapter", "ncc", "nss", "ieee", "iste", "csi", "toastmasters", "programmers"],
+      "text": "The supplied homepage lists student chapters and clubs such as IEEE, ISTE, CSI, ASCE, Toastmasters, NDLI Club, Programmers Club and Shutter Bugs, plus campus events. Event posts in the supplied HTML are snapshots and should not be treated as upcoming schedules. Check the official website for current events.",
+      "url": "https://www.srit.ac.in/"
+    },
+    {
+      "id": "accreditation",
+      "title": "Accreditation and institutional status",
+      "tags": ["accreditation", "accredited", "naac", "nba", "autonomous", "approval", "aicte", "affiliation", "jntua"],
+      "text": "The supplied homepage includes navigation links for affiliations and accreditations, NAAC, NBA, AICTE, APSCHE and JNTUA. An embedded social profile in the supplied HTML mentions historical milestones (NAAC A grade in 2017, NBA accreditation in 2018 and autonomous status in 2019 for 10 years). Treat these as historical claims from the snapshot and verify current status and program-specific accreditation on the institution's official regulatory pages.",
+      "url": "https://www.srit.ac.in/affiliations-accreditations-old/"
+    },
+    {
+      "id": "contact",
+      "title": "How to contact the college",
+      "tags": ["contact", "call", "phone", "email", "mail", "reach", "support", "hr@srit.ac.in"],
+      "text": "Phone shown in the supplied homepage: 91-951 561 1111. Email shown: hr@srit.ac.in. For current office contacts, full postal address, department contacts and directions, use the official Contact Us page.",
+      "url": "https://www.srit.ac.in/contact-us/"
+    }
+  ],
+  "disclaimer": "This chatbot is an independent enquiry assistant built from a supplied SRIT homepage snapshot. It is not an official college publication and cannot confirm live admissions, fees, vacancies, results or placement outcomes."
+}
